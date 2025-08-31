@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-container">
+  <div class="head_title">
+    <h1>Privacy Policy</h1>
+    <p class="intro-text">How we collect, store, and use sensor data in this application.</p>
+  </div>
+
+  <div class="text-section">
+    <h2>1. Data Collection</h2>
+    <p>
+      This system collects real-time readings from a LabJack U3-HV device, including device temperature, air temperature, and light levels.
+    </p>
+
+    <h2>2. Data Storage</h2>
+    <p>
+      Sensor data is stored locally in a SQLite database for analysis purposes. No personally identifiable information (PII) is collected.
+    </p>
+
+    <h2>3. Data Usage</h2>
+    <p>
+      Collected data is used for visualization, analysis, and testing. It is not shared with third parties or used for profiling.
+    </p>
+
+    <h2>4. Security</h2>
+    <p>
+      This is a local development project. While basic precautions are taken, this system is not intended for secure or production environments.
+    </p>
+  </div>
+
+   <div class="analysis-actions">
+    <a href="/" class="button">
+      <span class="button-icon">←</span>
+      Return to Dashboard
+    </a>
+  </div>
+</div>
+{% endblock %}

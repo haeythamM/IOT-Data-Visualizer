@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="dashboard-container">
+    <!-- ... Existing sections ... -->
+
+    <section class="about-section">
+      <h2>Electronic Circuit Design</h2>
+      <div class="circuit-diagram">
+        <h3>Sensor Connection Schematic</h3>
+        <div class="circuit-description">
+          <p>LabJack U3-HV Connection Configuration:</p>
+          <ul class="about-list">
+            <li><strong>Temperature Sensor (LM35/LMT86):</strong>
+              <ul>
+                <li>Connected to <code>AIN0</code></li>
+                <li>VCC: 3.3V from LabJack</li>
+                <li>GND: Common ground</li>
+                <li>Output directly to AIN0 pin</li>
+              </ul>
+            </li>
+            <li><strong>Photoresistor (LDR):</strong>
+              <ul>
+                <li>Connected to <code>AIN1</code></li>
+                <li>Voltage divider circuit with 10kΩ resistor</li>
+                <li>Configuration:
+                  <ul>
+                    <li>3.3V → LDR → AIN1 → 10kΩ → GND</li>
+                  </ul>
+                </li>
+                <li>Light intensity calculated using:<br>
+                  <code>R<sub>LDR</sub> = (3.3V * 10kΩ) / V<sub>AIN1</sub> - 10kΩ</code>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="circuit-note">
+          <p>Signal Conditioning:</p>
+          <ul class="about-list">
+            <li>Sampling rate: 1000 samples/second</li>
+            <li>12-bit ADC resolution (0-4095)</li>
+            <li>Voltage range: 0-3.3V</li>
+            <li>Software filtering for noise reduction</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ... Rest of existing sections ... -->
+  </div>
+{% endblock %}

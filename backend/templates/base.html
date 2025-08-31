@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LabJack Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <a
+          href="/"
+          class="header-title text-lg sm:text-xl font-bold truncate nav-link"
+          >LabJack Dashboard</a
+        >
+
+        <nav class="header-nav">
+          <a
+            href="/"
+            class="nav-link {% if request.path == '/' %}active{% endif %}"
+            >Home</a
+          >
+          <a
+            href="/analyze"
+            class="nav-link {% if request.path == '/analyze' %}active{% endif %}"
+            >Analyze</a
+          >
+          <a
+            href="/Documentation"
+            class="nav-link {% if request.path == '/Documentation' %}active{% endif %}"
+            >Documentation</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main>{% block content %} {% endblock %}</main>
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-left">
+          <p class="copyright">&copy; {{ current_year }} LabJack Dashboard</p>
+        </div>
+        <div class="footer-right">
+          <nav class="footer-nav">
+            <a
+              href="/Documentation"
+              class="footer-link {% if request.path == '/Documentation' %}active{% endif %}"
+              >Documentation</a
+            >
+            <a
+              href="/privacy"
+              class="footer-link {% if request.path == '/privacy' %}active{% endif %}"
+              >Privacy</a
+            >
+            <a
+              href="/terms"
+              class="footer-link {% if request.path == '/terms' %}active{% endif %}"
+              >Terms</a
+            >
+          </nav>
+        </div>
+      </div>
+      <p class="built-by">Built by Haeytham Almalak</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const year = new Date().getFullYear();
+        document.querySelectorAll(".footer p").forEach((p) => {
+          p.innerHTML = p.innerHTML.replace("{{ current_year }}", year);
+        });
+      });
+    </script>
+  </body>
+</html>

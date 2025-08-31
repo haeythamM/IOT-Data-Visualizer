@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="analysis-container">
+  <div class="analysis-header">
+    <h1 class="analysis-title">Sensor Data Analysis</h1>
+    <p class="analysis-subtitle">Comprehensive summary of sensor metrics from stored records</p>
+  </div>
+
+  <div class="analysis-content">
+    <div class="analysis-section chart-container">
+      <canvas id="summaryBarChart" class="analysis-chart"></canvas>
+      <div class="chart-explanation">
+        <p class="analysis-description">
+          This comparative bar chart visualizes key sensor metrics over the selected period. 
+          Each bar group represents different measurements (Minimum, Maximum, and Range values) 
+          across the three sensor types. Use this visualization to:
+        </p>
+        <ul class="analysis-list">
+          <li>Quickly compare performance between different sensors</li>
+          <li>Identify unusual spikes or drops in measurements</li>
+          <li>Understand variance through range values</li>
+          <li>Track stability of environmental conditions</li>
+        </ul>
+        <p class="analysis-note">
+          Hover over bars to see exact values. Detailed statistical breakdown is available 
+          in the metrics panel below. Data updates automatically with new readings.
+        </p>
+      </div>
+    </div>
+
+    <div class="analysis-section metrics-container">
+      <div class="metric-group">
+        <h3 class="metric-title">Device Temperature (°C)</h3>
+        <div class="metric-item">
+          <span class="metric-label">Min:</span>
+          <span class="metric-value" id="device-min">--</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Max:</span>
+          <span class="metric-value" id="device-max">--</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Range:</span>
+          <span class="metric-value" id="device-range">--</span>
+        </div>
+        
+      </div>
+
+      <div class="metric-group">
+        <h3 class="metric-title">Air Temperature (°C)</h3>
+        <div class="metric-item">
+          <span class="metric-label">Min:</span>
+          <span class="metric-value" id="air-min">--</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Max:</span>
+          <span class="metric-value" id="air-max">--</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Range:</span>
+          <span class="metric-value" id="air-range">--</span>
+        </div>
+      </div>
+
+      <div class="metric-group">
+        <h3 class="metric-title">Light (%)</h3>
+        <div class="metric-item">
+          <span class="metric-label">Min:</span>
+          <span class="metric-value" id="light-min">--</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Max:</span>
+          <span class="metric-value" id="light-max">--</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Range:</span>
+          <span class="metric-value" id="light-range">--</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="analysis-actions">
+    <a href="/" class="button">
+      <span class="button-icon">←</span>
+      Return to Dashboard
+    </a>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/analyze.js') }}" defer></script>
+{% endblock %}

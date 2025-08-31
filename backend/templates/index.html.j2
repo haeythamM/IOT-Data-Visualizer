@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="dashboard-container">
+   <div class="head_title">
+    <h1>Streamed Sensor Data</h1>
+  <p class="intro-text">Real-time data from LabJack U3-HV sensors (device temp, air temp, and light).</p>
+   </div>
+
+    <div class="sensor-info">
+      <div class="sensor-card">
+        <h3>Device Temperature</h3>
+        <p><span id="device-temp-value">--</span> °C</p>
+      </div>
+      <div class="sensor-card">
+        <h3>Air Temperature</h3>
+        <p><span id="air-temp-value">--</span> °C</p>
+      </div>
+      <div class="sensor-card">
+        <h3>Light</h3>
+        <p><span id="light-value">--</span> %</p>
+      </div>
+    </div>
+
+    <div class="charts-container">
+      <div class="chart-box">
+        <canvas id="sensorLineChart"></canvas>
+      </div>
+      <div class="chart-box">
+        <canvas id="sensorPieChart"></canvas>
+      </div>
+    </div>
+
+    <div class="charts-container">
+      <div class="chart-box">
+        <canvas id="sensorBarChart"></canvas>
+      </div>
+      <div class="chart-box">
+        <canvas id="sensorRadarChart"></canvas>
+      </div>
+    </div>
+
+ 
+      <div class="analysis-actions">
+    <a href="/analyze" class="button">
+      <span class="button-icon">⇨</span>
+      Go to Data Analyse
+    </a>
+  </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+{% endblock %}
